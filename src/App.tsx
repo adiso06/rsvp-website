@@ -577,6 +577,10 @@ function App() {
   const location = useLocation();
   const mousePosition = useMousePosition();
 
+  // Only allow specific routes
+  const allowedRoutes = ['/invite', '/sood-invite', '/arora-invite'];
+  const isValidRoute = allowedRoutes.includes(location.pathname);
+
   // Animations based on scroll position
   const heroOpacity = useTransform(scrollY, [0, 300], [1, 0]);
   const heroY = useTransform(scrollY, [0, 300], [0, -50]);
@@ -593,6 +597,19 @@ function App() {
     };
     return `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${event.start}/${event.end}&details=${encodeURIComponent(event.details)}&location=${encodeURIComponent(event.location)}`;
   };
+
+  // Show 404 for invalid routes
+  if (!isValidRoute) {
+    return (
+      <div className="min-h-screen bg-wedding-cream text-wedding-green font-serif flex items-center justify-center">
+        <div className="text-center px-4">
+          <h1 className="text-6xl md:text-8xl font-bold text-wedding-gold mb-4">404</h1>
+          <p className="text-2xl md:text-3xl mb-2">Page Not Found</p>
+          <p className="text-lg md:text-xl text-wedding-green/70">This invitation link is not valid.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-wedding-cream text-wedding-green font-serif overflow-x-hidden scroll-smooth" ref={containerRef} style={{ scrollSnapType: 'y proximity' }}>

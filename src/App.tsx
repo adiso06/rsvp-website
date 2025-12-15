@@ -20,16 +20,6 @@ const useMousePosition = () => {
 };
 
 // SVG Components for decorative elements
-const OmSymbol = ({ className = "" }: { className?: string }) => (
-  <svg viewBox="0 0 100 100" className={className} fill="currentColor">
-    <path d="M50,5 C35,5 25,15 25,30 C25,45 35,50 45,50 C40,55 30,55 25,50 C20,45 15,50 15,60 C15,75 30,85 50,85 C70,85 85,75 85,55 C85,40 75,35 65,35 C70,30 75,25 75,20 C75,12 68,8 60,10 C55,11 52,15 50,20 M50,20 C48,15 45,11 40,10 C32,8 25,12 25,20 C25,25 30,30 35,35 M75,55 C75,65 65,75 50,75 C35,75 25,65 25,55 M85,25 C90,25 95,30 95,35 C95,40 90,45 85,45 C80,45 75,40 75,35 C75,30 80,25 85,25" 
-      strokeWidth="2" 
-      stroke="currentColor" 
-      fill="none"
-    />
-  </svg>
-);
-
 const FloralCorner = ({ className = "", flip = false }: { className?: string; flip?: boolean }) => (
   <svg 
     viewBox="0 0 150 150" 
